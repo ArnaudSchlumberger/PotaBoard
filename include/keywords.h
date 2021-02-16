@@ -1,0 +1,7 @@
+#ifndef KEYWORDS_H
+#define KEYWORDS_H
+
+#define ON 1
+#define OFF 0
+
+#endif
