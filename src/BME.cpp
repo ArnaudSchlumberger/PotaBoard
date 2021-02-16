@@ -14,7 +14,7 @@ int BME_readID(){
   return Wire.read();
 }
 
-void BME_config(){
+void BME_setForced(){
   Wire.beginTransmission(BME280_ADDR);
   Wire.write(BME280_CTRL_MEAS_REG_ADDR);
   Wire.write(BME280_CTRL_MEAS_FORCED_MODE);
