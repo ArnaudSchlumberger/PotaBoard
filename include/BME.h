@@ -5,7 +5,7 @@
 #define BME280_ID_REG_ADDR 0xD0
 #define BME280_ID_VALUE 0x58
 
-#define BME280_CTRL_MEAS_REG_ADDR 0x74
+#define BME280_CTRL_MEAS_REG_ADDR 0xF4
 #define BME280_CTRL_MEAS_FORCED_MODE 0b01101101
 
 #define BME280_TEMP_REG 0xFA
@@ -13,6 +13,6 @@
 
 int BME_readID();
 
-void BME_config();
+void BME_setForced();
 
 #endif
