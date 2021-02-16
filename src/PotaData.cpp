@@ -28,8 +28,13 @@ void collectSendDataH(){
 }
 
 void collectSendDataTP(Adafruit_BMP280 &bmp, float &temperature, float &pression){
+    //setSampling to update Mode register and enter Forced Mode -> not optimal
+    bmp.setSampling(Adafruit_BMP280::MODE_FORCED,
+                  Adafruit_BMP280::SAMPLING_X4,
+                  Adafruit_BMP280::SAMPLING_X4,
+                  Adafruit_BMP280::FILTER_X2,      
+                  Adafruit_BMP280::STANDBY_MS_500);
 
-    uint16_t* humiditePots = new uint16_t[4];
     temperature = bmp.readTemperature();
     pression = bmp.readPressure();
 
