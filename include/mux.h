@@ -11,7 +11,7 @@ void muxInitPins();
 //Writes S1 & S0 pins of Mux to select which sensor to read
 void muxSelect(const uint8_t S);
 //Returns voltage at multiplexer output
-uint16_t muxReadSingle();
+uint16_t muxReadSingle(const uint8_t sensor);
 //Returns all voltage at mux inputs
 uint16_t* muxReadAll();
 //Turns ON or OFF Multiplexer and associated sensors

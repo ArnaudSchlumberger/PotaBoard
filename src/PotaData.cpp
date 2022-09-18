@@ -33,11 +33,26 @@ void collectSendDataTP(Adafruit_BMP280 &bmp, float &temperature, float &pression
     temperature = bmp.readTemperature();
     pression = bmp.readPressure();
 
-    Serial.print("[");
     Serial.print(temperature);
     Serial.print(";");
     Serial.print(pression/100);
-    Serial.print("]\r\n");
-
     delay(DELAY_AFTER_END_OF_FRAME);
+}
+
+void sendBatteryVoltage(const float batVoltage){
+    Serial.print(batVoltage);
+    delay(DELAY_AFTER_END_OF_FRAME);
+}
+
+void collectDataHumidity(uint16_t &h1, uint16_t &h2, uint16_t &h3, uint16_t &h4){
+    h1 = muxReadSingle(0);
+    h2 = muxReadSingle(1);
+    h3 = muxReadSingle(2);
+    h4 = muxReadSingle(3);
+}
+
+void collectDataTempPress(Adafruit_BMP280 &bmp, float &temperature, float &pression){
+    BME_setForced();
+    temperature = bmp.readTemperature();
+    pression = bmp.readPressure();
 }

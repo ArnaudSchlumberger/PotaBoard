@@ -7,6 +7,10 @@ void initBattPins(){
     pinMode(V_bat, INPUT);
 }
 
-uint16_t readBattVoltage(){
-    return VOLTAGE_DIVIDE_FACTOR*map(analogRead(V_bat), 0, 1023, 0, MAX_BATTERY_VOLTAGE);
+float readBattVoltage(){
+    return 1.031175 * VOLTAGE_DIVIDE_FACTOR * analogRead(V_bat) * (3.3/1023);
+}
+
+uint16_t readBattVoltageRaw(){
+    return analogRead(V_bat);
 }

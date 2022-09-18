@@ -2,8 +2,12 @@
 #define BATTERY_H
 #include <Arduino.h>
 
+#define BATTERY_THRESHOLD_VOLTAGE 465 //3V equivalent
+
 void initBattPins();
 
-uint16_t readBattVoltage();
+float readBattVoltage();
+
+uint16_t readBattVoltageRaw();
 
 #endif
